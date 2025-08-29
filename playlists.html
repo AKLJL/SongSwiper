@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Song Swiper - Playlists</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <div class="logo">Ss</div>
-    <div class="header-right">
-      <span>Song Swiper</span>
-      <div class="profile">Profile ⚪ settings ▾</div>
-    </div>
+    <h1>🎶 Song Swiper</h1>
+    <nav>
+      <a href="playlists.html">Playlists</a>
+      <a href="results.html">Results</a>
+      <a href="settings.html">⚙ Settings</a>
+    </nav>
   </header>
 
   <main>
-    <div class="playlist-grid" id="playlist-grid">
-      <!-- playlists will load here -->
-    </div>
+    <h2>Your Playlists</h2>
+    <div id="playlist-grid"></div>
   </main>
+
+  <script src="js/playlists.js"></script>
 </body>
 </html>
