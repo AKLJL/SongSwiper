@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Song Swiper - Results</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <div class="logo">Ss</div>
-    <div class="header-right">
-      <span>Song Swiper</span>
-      <div class="profile">Profile ⚪ settings ▾</div>
-    </div>
+    <h1>🎶 Song Swiper</h1>
+    <nav>
+      <a href="playlists.html">Playlists</a>
+      <a href="results.html">Results</a>
+      <a href="settings.html">⚙ Settings</a>
+    </nav>
   </header>
 
-  <main class="results">
-    <div class="dislike-col">
-      <h2>Dislike</h2>
-      <ul id="dislike-list"></ul>
+  <main>
+    <h2>Results</h2>
+    <div class="results-container">
+      <div>
+        <h3>👍 Kept Songs</h3>
+        <ul id="kept-list"></ul>
+      </div>
+      <div>
+        <h3>👎 Skipped Songs</h3>
+        <ul id="skipped-list"></ul>
+      </div>
     </div>
-    <div class="like-col">
-      <h2>LIKE</h2>
-      <ul id="like-list"></ul>
-      <button class="spotify-btn">Add To Playlist</button>
-    </div>
+    <button id="add-playlist-btn">Add Kept Songs to Playlist</button>
   </main>
+
+  <script src="js/results.js"></script>
 </body>
 </html>
