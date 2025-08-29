@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Song Swiper</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">SS</div>
+      <div>
+        <h1>Song Swiper</h1>
+        <div class="tag">Swipe right to keep • Swipe left to pass</div>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="deployBtn">Deploy</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) Connect a music service</h2>
+      <p class="muted">Paste credentials below (you can test with dummy mode first).</p>
+
+      <div class="provider-grid">
+        <div class="provider-card">
+          <h3>Spotify</h3>
+          <label>Client ID (from dashboard)
+            <input id="spotifyClientId" placeholder="Spotify Client ID">
+          </label>
+          <div class="small">Redirect URI must be: <code id="redirectUri"></code></div>
+          <div class="row">
+            <button id="spotifyConnect" class="btn btn-primary">Connect Spotify</button>
+            <button id="spotifyAuto" class="btn">Finish Auth (if returned)</button>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <h3>YouTube / Google</h3>
+          <label>OAuth Client ID (Web)
+            <input id="ytClientId" placeholder="Google OAuth Client ID">
+          </label>
+          <div class="small">Enable YouTube Data API; redirect URI same as above.</div>
+          <div class="row">
+            <button id="ytConnect" class="btn btn-primary">Connect YouTube</button>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <h3>Apple Music (MusicKit)</h3>
+          <label>Developer Token (JWT)
+            <input id="appleDevToken" placeholder="Paste Apple Developer Token (JWT)">
+          </label>
+          <div class="small">If you have a server endpoint to generate tokens, paste URL below (optional).</div>
+          <label>Apple Token Endpoint (optional)
+            <input id="appleTokenEndpoint" placeholder="https://your-server.example/api/apple-token">
+          </label>
+          <div class="row">
+            <button id="appleConnect" class="btn btn-primary">Connect Apple</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playlistsCard" class="card hidden">
+      <div class="card-header">
+        <h2>2) Choose a playlist</h2>
+        <div id="providerBadge" class="badge">—</div>
+      </div>
+      <div id="playlistGrid" class="grid"></div>
+    </section>
+
+    <section id="swiperCard" class="card hidden">
+      <div class="card-header">
+        <h2 id="playlistTitle">Playlist</h2>
+        <div id="progressText" class="muted">0 / 0</div>
+      </div>
+
+      <div id="stack" class="stack">
+        <!-- cards inserted here -->
+      </div>
+
+      <div class="controls">
+        <button id="btnPass" class="btn">👎 Pass</button>
+        <button id="btnLike" class="btn btn-accent">👍 Keep</button>
+      </div>
+    </section>
+
+    <section id="resultsCard" class="card hidden">
+      <div class="card-header">
+        <h2>3) Your swipes</h2>
+        <div class="row">
+          <button id="saveNew" class="btn btn-primary">Save to NEW playlist</button>
+          <button id="saveExist" class="btn">Save to existing</button>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <div>
+          <h3>Kept (Right)</h3>
+          <ul id="keptList"></ul>
+        </div>
+        <div>
+          <h3>Passed (Left)</h3>
+          <ul id="passedList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Demo mode</h3>
+      <p class="muted">If you don't want to configure APIs yet, click the button below to load demo playlists and songs (local dummy data).</p>
+      <div class="row">
+        <button id="demoBtn" class="btn">Load demo playlists</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Made with ❤️ — Song Swiper
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
