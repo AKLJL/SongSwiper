@@ -2,23 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Song Swiper - Login</title>
+  <title>Song Swiper</title>
   <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
-<body class="centered">
+<body>
+  <!-- Header -->
   <header>
     <div class="logo">Ss</div>
-    <div class="header-right">
-      <span>Song Swiper</span>
-      <div class="profile">Profile ⚪ settings ▾</div>
+    <h1>Song Swiper</h1>
+    <div class="profile-menu">
+      <button id="settingsBtn">Profile ☺ settings ▾</button>
+      <div id="settingsDropdown" class="dropdown hidden">
+        <button id="logoutBtn">Logout</button>
+        <button id="profileBtn">Profile</button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <h1>Song Swiper</h1>
-    <button id="login-btn" class="spotify-btn">Login with Spotify</button>
-  </main>
+  <!-- Login Page -->
+  <section id="loginPage" class="page active">
+    <h2>Song Swiper</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="spotify-logo">
+    <button id="loginBtn">Login</button>
+  </section>
+
+  <!-- Playlist Page -->
+  <section id="playlistPage" class="page">
+    <div id="playlistGrid" class="grid"></div>
+  </section>
+
+  <!-- Swipe Page -->
+  <section id="swipePage" class="page">
+    <div id="songCard" class="card"></div>
+    <div class="controls">
+      <button id="prevBtn">⏮</button>
+      <button id="dislikeBtn">❌</button>
+      <button id="pauseBtn">⏯</button>
+      <button id="likeBtn">✔</button>
+      <button id="nextBtn">⏭</button>
+    </div>
+  </section>
+
+  <!-- Results Page -->
+  <section id="resultsPage" class="page">
+    <h2>Dislike</h2>
+    <div id="dislikedSongs"></div>
+    <h2>LIKE</h2>
+    <div id="likedSongs"></div>
+    <button id="addToPlaylistBtn">Add To Playlist</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="squiggle">
+      <a href="https://www.youtube.com/@AKLJL64" target="_blank">📺</a>
+      <a href="https://x.com/AKLJL64" target="_blank">𝕏</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
