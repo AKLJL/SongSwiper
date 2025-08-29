@@ -2,31 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Song Swiper - Swipe</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <title>Song Swiper - Swipe Songs</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <div class="logo">Ss</div>
-    <div class="header-right">
-      <span>Song Swiper</span>
-      <div class="profile">Profile ⚪ settings ▾</div>
-    </div>
+    <h1>🎶 Song Swiper</h1>
+    <nav>
+      <a href="playlists.html">Playlists</a>
+      <a href="results.html">Results</a>
+      <a href="settings.html">⚙ Settings</a>
+    </nav>
   </header>
 
-  <main class="centered">
-    <div class="song-card" id="song-card">
-      <!-- song artwork will appear -->
-    </div>
-    <div class="controls">
-      <button class="ctrl-btn">⏪</button>
-      <button class="ctrl-btn">❌</button>
-      <button class="ctrl-btn">⏯️</button>
-      <button class="ctrl-btn">✔️</button>
-      <button class="ctrl-btn">➡️</button>
+  <main>
+    <h2>Swipe Songs</h2>
+    <div id="song-card"></div>
+    <div class="swipe-buttons">
+      <button id="skip-btn">👎 Skip</button>
+      <button id="keep-btn">👍 Keep</button>
     </div>
   </main>
+
+  <script src="js/swipe.js"></script>
 </body>
 </html>
