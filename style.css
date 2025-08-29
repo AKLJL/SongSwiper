@@ -1,70 +1,96 @@
+/* Spotify-inspired theme */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica Neue, Arial, sans-serif;
   background: #191414;
-  color: white;
-  text-align: center;
+  color: #fff;
 }
 
-header h1 {
-  margin: 20px 0;
-  color: #1DB954;
-}
-
-button {
-  cursor: pointer;
-  border: none;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
   padding: 10px 20px;
-  margin: 5px;
-  border-radius: 8px;
+}
+
+.logo {
+  font-size: 20px;
   font-weight: bold;
 }
 
-#loginBtn {
-  background: #1DB954;
-  color: #000;
+.profile {
+  font-size: 14px;
 }
 
-#playlistGrid {
+main {
+  padding: 20px;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+}
+
+.spotify-btn {
+  background: #1DB954;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.playlist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
 }
 
-.card {
-  background: #282828;
-  padding: 15px;
-  border-radius: 10px;
-  display: none;
+.playlist-card {
+  background: #222;
+  padding: 10px;
+  text-align: center;
 }
 
-.buttons {
-  margin-top: 15px;
+.song-card {
+  width: 300px;
+  height: 300px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#swipeRight {
-  background: #1DB954;
-  color: #000;
+.controls {
+  margin-top: 20px;
 }
 
-#swipeLeft {
-  background: #282828;
-  color: #b3b3b3;
+.ctrl-btn {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-#results {
-  display: none;
-  padding: 20px;
+.results {
+  display: flex;
+  justify-content: space-around;
 }
 
-.resultColumn {
-  display: inline-block;
-  vertical-align: top;
-  width: 45%;
-  margin: 10px;
+.results h2 {
+  font-size: 32px;
 }
 
-.resultColumn ul {
-  text-align: left;
+.results ul {
+  list-style: none;
+  padding: 0;
 }
