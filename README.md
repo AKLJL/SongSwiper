@@ -4,7 +4,7 @@
 **Song Swiper** is a modern, Spotify-inspired web app that lets you log in with Spotify, browse your playlists, and swipe through songs Tinder-style to keep or skip them.
 It’s built entirely with **frontend code** (HTML/CSS/JS) and hosted on **GitHub Pages** — no backend required.
 
-👉 Live Demo: [akljl.github.io/song-swiper](https://akljl.github.io/song-swiper/)
+👉 Live Demo: [press me](https://akljl.github.io/song-swiper/index.html)
 
 ---
 
