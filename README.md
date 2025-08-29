@@ -1,138 +1,142 @@
-# Song Swiper
 
-**Song Swiper** is a modern web app that lets you browse your Spotify playlists in a fun, Tinder-style swipe interface. Keep or pass songs to quickly curate your favorite tracks. Perfect for music lovers who want to discover and organize playlists in a playful way.
+# 🎶 Song Swiper
 
-The site is fully frontend, works on GitHub Pages, and uses **Spotify login** — no backend required.
+**Song Swiper** is a modern, Spotify-inspired web app that lets you log in with Spotify, browse your playlists, and swipe through songs Tinder-style to keep or skip them.
+It’s built entirely with **frontend code** (HTML/CSS/JS) and hosted on **GitHub Pages** — no backend required.
+
+👉 Live Demo: [akljl.github.io/song-swiper](https://akljl.github.io/song-swiper/)
 
 ---
 
 ## 🌟 Features
 
-1. **Spotify Login**
+### 🔐 Spotify Login
 
-   * Users log in with their personal Spotify account.
-   * OAuth token is obtained via frontend — no secrets are exposed.
+* Secure login with your personal Spotify account.
+* Built with **Spotify OAuth** (implicit flow).
+* No secrets exposed — every user logs in with their own account.
 
-2. **Playlist Grid**
+### 📂 Playlist Browser
 
-   * After login, all your Spotify playlists are displayed in a responsive grid.
-   * Playlist covers and names are shown.
-   * Click a playlist to start swiping songs.
+* Displays all your Spotify playlists in a **clean grid**.
+* Cover art + playlist name shown.
+* Select a playlist to start swiping.
 
-3. **Song Swiping**
+### 👆 Tinder-Style Swiping
 
-   * Each song in the selected playlist appears one by one.
-   * Swipe right (**👍 Keep**) → song added to your kept list.
-   * Swipe left (**👎 Pass**) → song added to your passed list.
-   * Songs are **not removed** from the original playlist.
+* **Swipe Right (Keep 👍)** → Save track to “Kept Songs.”
+* **Swipe Left (Skip 👎)** → Add track to “Passed Songs.”
+* Original playlists remain unchanged.
+* Tracks are **shuffled** automatically.
 
-4. **Shuffle Play**
+### 📊 Results Page
 
-   * Songs in the playlist are automatically shuffled before swiping.
+* Split results after swiping:
 
-5. **Results Page**
+  * ✅ **Kept Songs** list.
+  * ❌ **Skipped Songs** list.
+* **Add to Playlist**: create a new playlist with your Kept Songs directly in your Spotify account.
 
-   * After all songs are swiped, you see a split list:
+### ⚙️ Settings Page
 
-     * **Kept Songs** — songs you liked.
-     * **Passed Songs** — songs you skipped.
+* Manage your session (log out, re-login).
+* External links (squiggle under header) to  socials:
 
-6. **Modern Design**
+  * [YouTube](https://www.youtube.com/@AKLJL64)
+  * [X (Twitter)](https://x.com/AKLJL64)
 
-   * Spotify-inspired colors:
+### 🎨 Modern Spotify-Inspired UI
 
-     * Green: `#1DB954`
-     * Dark: `#191414`
-     * Accent: `#282828`
-   * Card-style playlists and swipe buttons.
+* Brand colors:
 
-7. **Frontend Only**
-
-   * Works entirely on GitHub Pages.
-   * No backend needed.
-   * Fully safe for public use.
+  * Green → `#1DB954`
+  * Dark → `#191414`
+  * Accent → `#282828`
+* Clean typography and spacing.
+* Responsive design for both desktop and mobile.
 
 ---
 
-## 📦 Files
+## 📂 Project Structure
 
-| File          | Purpose                                                                             |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `index.html`  | Main page structure, header, login, playlist grid, swipe interface, results section |
-| `style.css`   | Styling for grid, cards, buttons, results, and Spotify colors                       |
-| `app.js`      | Handles Spotify login, playlist fetch, shuffling, swiping, and results display      |
-| `favicon.png` | Optional favicon for the site (your custom icon)                                    |
+song-swiper/
+│
+├── index.html         # Login page
+├── playlists.html     # Playlist selection page
+├── swipe.html         # Song swiping interface
+├── results.html       # Kept vs skipped songs
+├── settings.html      # Settings / logout page
+│
+├── css/
+│   └── style.css      # Shared styling
+│
+├── js/
+│   ├── auth.js        # Spotify login + token storage
+│   ├── playlists.js   # Fetch & display playlists
+│   ├── swipe.js       # Handle swipe logic
+│   ├── results.js     # Show results + add playlist
+│
+├── images/
+│   └── favicon.ico    # Favicon
+│
+└── README.md
+
 
 ---
 
 ## ⚙️ Setup Instructions
 
-1. **Create GitHub Repo**
+### 1. Clone / Fork Repo
 
-   * Go to [GitHub](https://github.com) → New repository.
-   * Name it e.g., `song-swiper`.
-   * Choose **Public**.
-   * Initialize with a `README.md`.
+```bash
+git clone https://github.com/akljl/song-swiper.git
+cd song-swiper
+```
 
-2. **Upload Files**
+### 2. Configure Spotify App
 
-   * Upload `index.html`, `style.css`, `app.js`, and optional `favicon.png` to the repo root.
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
+2. Create an app → copy the **Client ID**.
+3. Set **Redirect URIs** to your GitHub Pages URL:
 
-3. **Enable GitHub Pages**
+   ```
+   https://akljl.github.io/song-swiper/
+   ```
 
-   * Go to **Settings → Pages**.
-   * Under **Branch**, select `main` → `/ (root)`.
-   * Save. Your site will be live at:
+   *(and each page, if needed: `/index.html`, `/playlists.html`, etc.)*
+4. Save.
 
-     ```
-     https://YOUR-USERNAME.github.io/song-swiper/
-     ```
+### 3. Insert Client ID
 
-4. **Set Up Spotify Developer App**
+In `app.js`, update:
 
-   * Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
-   * Create a new app → copy the **Client ID**.
-   * Set the **Redirect URI** to your GitHub Pages URL:
+```js
+const CLIENT_ID = "2557a72b59e140fe98c86ec8e8ec5854";
+```
 
-     ```
-     https://YOUR-USERNAME.github.io/song-swiper/
-     ```
-   * Save.
+### 4. Deploy
 
-5. **Configure `app.js`**
+1. Commit changes and push to GitHub.
+2. Enable **GitHub Pages** in repo → Settings → Pages → select `main` branch root.
+3. Access your site at:
 
-   * Replace the `CLIENT_ID` placeholder with your **Spotify Client ID**.
-
-     ```javascript
-     const CLIENT_ID = "YOUR_CLIENT_ID_HERE";
-     ```
-
-6. **Launch Site**
-
-   * Open your GitHub Pages URL.
-   * Click **Login with Spotify**.
-   * Authorize the app.
-   * Browse your playlists and start swiping songs.
+   ```
+   https://akljl.github.io/song-swiper/
+   ```
 
 ---
 
-## 💡 Notes
+## 🚀 Future Ideas
 
-* **Public Use:** Each visitor logs in with their own Spotify account — no tokens are shared.
-* **No Backend:** GitHub Pages is static, so all logic runs in the browser.
-* **Spotify API Limits:** Standard Spotify Web API limits apply.
-* **Future Expansion:** Apple Music and YouTube Music support can be added later with their respective APIs.
-
----
-
-## 🖼 Screenshot (Optional)
-
-*(Add a screenshot of the playlist grid or swipe view here)*
+* Save swipe progress between sessions.
+* Smarter shuffle (by genre, release year, popularity).
+* Animated swipe cards for more fluid UX.
+* Friend mode: compare swipes with friends.
 
 ---
 
 ## ⚡ License
 
-MIT License — feel free to fork, modify, and use.
+MIT License — free to fork, modify, and share.
 
 
