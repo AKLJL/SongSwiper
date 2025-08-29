@@ -2,65 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Song Swiper</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Song Swiper - Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div class="logo">Ss</div>
-    <h1>Song Swiper</h1>
-    <div class="profile-menu">
-      <button id="settingsBtn">Profile ☺ settings ▾</button>
-      <div id="settingsDropdown" class="dropdown hidden">
-        <button id="logoutBtn">Logout</button>
-        <button id="profileBtn">Profile</button>
-      </div>
-    </div>
+    <h1>🎶 Song Swiper</h1>
+    <nav>
+      <a href="settings.html">⚙ Settings</a>
+    </nav>
   </header>
 
-  <!-- Login Page -->
-  <section id="loginPage" class="page active">
-    <h2>Song Swiper</h2>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="spotify-logo">
-    <button id="loginBtn">Login</button>
-  </section>
+  <main class="center">
+    <button id="login-btn">Login with Spotify</button>
+  </main>
 
-  <!-- Playlist Page -->
-  <section id="playlistPage" class="page">
-    <div id="playlistGrid" class="grid"></div>
-  </section>
-
-  <!-- Swipe Page -->
-  <section id="swipePage" class="page">
-    <div id="songCard" class="card"></div>
-    <div class="controls">
-      <button id="prevBtn">⏮</button>
-      <button id="dislikeBtn">❌</button>
-      <button id="pauseBtn">⏯</button>
-      <button id="likeBtn">✔</button>
-      <button id="nextBtn">⏭</button>
-    </div>
-  </section>
-
-  <!-- Results Page -->
-  <section id="resultsPage" class="page">
-    <h2>Dislike</h2>
-    <div id="dislikedSongs"></div>
-    <h2>LIKE</h2>
-    <div id="likedSongs"></div>
-    <button id="addToPlaylistBtn">Add To Playlist</button>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="squiggle">
-      <a href="https://www.youtube.com/@AKLJL64" target="_blank">📺</a>
-      <a href="https://x.com/AKLJL64" target="_blank">𝕏</a>
-    </div>
-  </footer>
-
-  <script src="app.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>
