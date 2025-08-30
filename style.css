@@ -1,57 +1,140 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #191414;
-  color: #fff;
+/* Global reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-header {
-  background: #000;
-  padding: 15px;
+/* Body */
+body {
+  background-color: #191414; /* Spotify black */
+  color: #fff;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #000;
+  padding: 1rem 2rem;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 header h1 {
+  font-size: 1.5rem;
+  color: #1DB954; /* Spotify green */
+  font-weight: bold;
+}
+
+header button {
+  background: none;
+  border: 1px solid #1DB954;
   color: #1DB954;
-  margin: 0;
-}
-
-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #fff;
-}
-
-nav a:hover {
-  color: #1DB954;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
-
-button {
-  background: #1DB954;
-  border: none;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
-  color: #fff;
+  transition: all 0.3s ease;
+}
+header button:hover {
+  background-color: #1DB954;
+  color: #000;
 }
 
-button:hover {
-  background: #1ed760;
+/* Playlist Grid */
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
 }
 
+.playlist-card {
+  background-color: #282828;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.3s ease;
+  cursor: pointer;
+}
+.playlist-card:hover {
+  transform: scale(1.05);
+  background-color: #333;
+}
+
+.playlist-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Song swipe section */
+.song-card {
+  background-color: #282828;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.song-card img {
+  width: 80%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.song-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.song-actions button {
+  background-color: #1DB954;
+  border: none;
+  color: #000;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.song-actions button:hover {
+  background-color: #1ed760;
+}
+
+/* Results */
 .results-container {
   display: flex;
   justify-content: space-around;
-  gap: 20px;
+  padding: 2rem;
+}
+
+.results-column {
+  width: 45%;
+  background-color: #282828;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.results-column h2 {
+  color: #1DB954;
+  margin-bottom: 1rem;
+}
+
+.results-column ul {
+  list-style: none;
+}
+
+.results-column li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: #333;
+  border-radius: 6px;
 }
