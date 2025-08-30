@@ -1,140 +1,162 @@
-/* Global reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+/* ====== Spotify-inspired global theme ====== */
+:root{
+  --green:#1DB954;
+  --green-hover:#1ed760;
+  --black:#191414;
+  --dark:#121212;
+  --card:#282828;
+  --text:#ffffff;
+  --muted:#b3b3b3;
 }
 
-/* Body */
-body {
-  background-color: #191414; /* Spotify black */
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--black);
+  color: var(--text);
+  line-height:1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Header */
-header {
-  background-color: #000;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+header{
+  background: #000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 18px;
+  position:sticky; top:0; z-index:50;
+  border-bottom:1px solid #000;
+}
+header h1{
+  margin:0;
+  font-size:20px;
+  color: var(--green);
+  letter-spacing:.3px;
+}
+.header-btn, header a{
+  color:#fff; text-decoration:none; font-size:14px;
+  padding:8px 14px; border-radius:999px; border:1px solid transparent;
+}
+.header-btn:hover, header a:hover{ color:var(--green); }
+
+/* Generic buttons */
+button{
+  background: var(--green);
+  color:#000;
+  border:none;
+  border-radius:999px;
+  padding:12px 18px;
+  font-weight:700;
+  cursor:pointer;
+  transition: background .2s ease, transform .05s ease;
+}
+button:hover{ background: var(--green-hover); }
+button:active{ transform: translateY(1px); }
+
+/* Center helper */
+.center-content{
+  min-height: calc(100vh - 64px);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:16px; padding:24px;
 }
 
-header h1 {
-  font-size: 1.5rem;
-  color: #1DB954; /* Spotify green */
-  font-weight: bold;
-}
-
-header button {
-  background: none;
-  border: 1px solid #1DB954;
-  color: #1DB954;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-header button:hover {
-  background-color: #1DB954;
-  color: #000;
-}
-
-/* Playlist Grid */
-.playlist-grid {
-  display: grid;
+/* Playlist grid */
+.playlist-grid{
+  width:100%;
+  max-width:1200px;
+  margin:24px auto;
+  padding:0 16px 40px;
+  display:grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+  gap:18px;
 }
+.playlist-card{
+  background: var(--card);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+  cursor:pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.playlist-card:hover{
+  background:#333; transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+.playlist-card img{
+  width:100%; aspect-ratio:1/1; object-fit:cover;
+  border-radius:12px; margin-bottom:10px;
+}
+.playlist-card .name{ font-weight:700; margin-bottom:6px; }
+.playlist-card .meta{ color:var(--muted); font-size:12px; }
 
-.playlist-card {
-  background-color: #282828;
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.2s ease, background 0.3s ease;
-  cursor: pointer;
+/* Song card (swipe page) */
+.song-card{
+  margin:40px auto 10px;
+  background: var(--card);
+  width:min(480px, 92vw);
+  border-radius:20px;
+  padding:18px;
+  text-align:center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
 }
-.playlist-card:hover {
-  transform: scale(1.05);
-  background-color: #333;
+.song-card img{
+  width:100%; border-radius:16px; margin-bottom:14px; aspect-ratio:1/1; object-fit:cover;
 }
+.song-card h2{ margin:8px 0 2px; font-size:22px; }
+.song-card p{ margin:0; color:var(--muted); }
 
-.playlist-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+/* Swipe actions */
+.song-actions{
+  margin:16px auto 40px;
+  display:flex; gap:12px; justify-content:center; align-items:center;
 }
-
-/* Song swipe section */
-.song-card {
-  background-color: #282828;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+.song-actions .secondary{
+  background:#222; color:#fff; border:1px solid #333;
 }
-
-.song-card img {
-  width: 80%;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-
-.song-actions {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-.song-actions button {
-  background-color: #1DB954;
-  border: none;
-  color: #000;
-  padding: 0.75rem 2rem;
-  border-radius: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.song-actions button:hover {
-  background-color: #1ed760;
-}
+.song-actions .secondary:hover{ background:#2a2a2a; }
 
 /* Results */
-.results-container {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
+.results-container{
+  width:100%;
+  max-width:1200px;
+  margin:24px auto 60px;
+  padding:0 16px;
+  display:grid; gap:20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.results-column{
+  background: var(--card);
+  border-radius:16px;
+  padding:16px;
+  min-height:300px;
+}
+.results-column h2{
+  margin:0 0 12px;
+  color: var(--green);
+  letter-spacing:.5px;
+}
+.results-column ul{
+  list-style:none; padding:0; margin:0;
+  display:grid; gap:8px;
+}
+.results-item{
+  background:#333; border-radius:10px; padding:10px 12px; font-size:14px;
+}
+.results-actions{
+  margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;
 }
 
-.results-column {
-  width: 45%;
-  background-color: #282828;
-  padding: 1rem;
-  border-radius: 12px;
-}
+/* Links */
+a{ color:var(--green); }
+a:hover{ color:var(--green-hover); }
 
-.results-column h2 {
-  color: #1DB954;
-  margin-bottom: 1rem;
-}
-
-.results-column ul {
-  list-style: none;
-}
-
-.results-column li {
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  background: #333;
-  border-radius: 6px;
+/* Responsive tweaks */
+@media (max-width: 780px){
+  .results-container{ grid-template-columns:1fr; }
 }
