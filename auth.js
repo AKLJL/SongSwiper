@@ -1,39 +1,22 @@
-// ===== Spotify OAuth (Implicit Grant) =====
 const CLIENT_ID = "2557a72b59e140fe98c86ec8e8ec5854";
-
-// build a redirect to playlists.html that works on GitHub Pages
-const REDIRECT_URI = `${window.location.origin}${(window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname.replace(/[^/]+$/, ''))}playlists.html`;
-
+const REDIRECT_URI = "https://akljl.github.io/song-swiper/";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
-const SCOPES = [
-  "playlist-read-private",
-  "playlist-read-collaborative",
-  "playlist-modify-public",
-  "playlist-modify-private",
-  "user-read-private"
-].join(" ");
 
-function goLogin() {
-  const url =
-    `${AUTH_ENDPOINT}?client_id=${encodeURIComponent(CLIENT_ID)}` +
-    `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
-    `&response_type=${encodeURIComponent(RESPONSE_TYPE)}` +
-    `&scope=${encodeURIComponent(SCOPES)}` +
-    `&show_dialog=false`;
-  window.location.href = url;
-}
+document.getElementById("login-btn").addEventListener("click", () => {
+  window.location = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(
+    REDIRECT_URI
+  )}&response_type=${RESPONSE_TYPE}&scope=playlist-read-private%20playlist-read-collaborative%20user-library-read%20playlist-modify-private%20playlist-modify-public`;
+});
 
-// Attach to button on index.html
-const loginBtn = document.getElementById("loginBtn");
-if (loginBtn) loginBtn.addEventListener("click", goLogin);
-
-// Optional: if already authenticated, you can skip index -> playlists
-(function maybeSkipLogin(){
-  if (!loginBtn) return;
-  const token = localStorage.getItem("token");
-  const exp = Number(localStorage.getItem("token_expires_at") || 0);
-  if (token && Date.now() < exp) {
-    window.location.href = REDIRECT_URI;
+// Get token from URL after redirect
+window.onload = () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const token = new URLSearchParams(hash.substring(1)).get("access_token");
+    if (token) {
+      localStorage.setItem("spotify_token", token);
+      window.location = "playlists.html"; // ✅ send user to playlists page
+    }
   }
-})();
+};
