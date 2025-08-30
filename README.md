@@ -66,18 +66,12 @@ song-swiper/
 ├── swipe.html         # Song swiping interface
 ├── results.html       # Kept vs skipped songs
 ├── settings.html      # Settings / logout page
-│
-├── css/
-│   └── style.css      # Shared styling
-│
-├── js/
-│   ├── auth.js        # Spotify login + token storage
-│   ├── playlists.js   # Fetch & display playlists
-│   ├── swipe.js       # Handle swipe logic
-│   ├── results.js     # Show results + add playlist
-│
-├── images/
-│   └── favicon.ico    # Favicon
+├──style.css      # Shared styling
+├── auth.js        # Spotify login + token storage
+├── playlists.js   # Fetch & display playlists
+├── swipe.js       # Handle swipe logic
+├── results.js     # Show results + add playlist
+└── favicon.ico    # Favicon
 │
 └── README.md
 
