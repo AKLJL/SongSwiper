@@ -3,33 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Song Swiper - Results</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>🎶 Song Swiper</h1>
-    <nav>
-      <a href="playlists.html">Playlists</a>
-      <a href="results.html">Results</a>
-      <a href="settings.html">⚙ Settings</a>
-    </nav>
+    <h1>Your Results</h1>
+    <a href="settings.html" class="header-btn">⚙ Settings</a>
   </header>
 
-  <main>
-    <h2>Results</h2>
-    <div class="results-container">
-      <div>
-        <h3>👍 Kept Songs</h3>
-        <ul id="kept-list"></ul>
-      </div>
-      <div>
-        <h3>👎 Skipped Songs</h3>
-        <ul id="skipped-list"></ul>
-      </div>
+  <main class="results-container">
+    <div class="results-column">
+      <h2>Kept</h2>
+      <ul id="keptSongs"></ul>
+      <button id="savePlaylistBtn">Add to Playlist</button>
     </div>
-    <button id="add-playlist-btn">Add Kept Songs to Playlist</button>
+    <div class="results-column">
+      <h2>Skipped</h2>
+      <ul id="skippedSongs"></ul>
+    </div>
   </main>
 
-  <script src="js/results.js"></script>
+  <script src="results.js"></script>
 </body>
 </html>
